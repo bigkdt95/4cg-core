@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4CGCORE - TERMINAL SUPREMO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+        :root { --font-size: 14px; }
+        body { background: #000; color: #a1a1aa; font-family: 'JetBrains+Mono', monospace; font-size: var(--font-size); transition: all 0.3s; }
+        .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 40px 40px; }
+        .neon-border { border: 1px solid rgba(34, 197, 94, 0.15); background: rgba(5, 5, 5, 0.9); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .neon-border:hover { border-color: #22c55e; box-shadow: 0 0 30px rgba(34, 197, 94, 0.2); transform: scale(1.02); }
+        .high-contrast { background: #fff !important; color: #000 !important; }
+        .high-contrast .neon-border { border-color: #000 !important; background: #eee !important; color: #000 !important; }
+        .high-contrast h1, .high-contrast h3, .high-contrast p { color: #000 !important; }
+        .modal-glass { background: #000; border: 2px solid #22c55e; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen flex flex-col">
+
+    <!-- PROTOCOLO DE SEGURANÇA E ISENÇÃO JURÍDICA -->
+    <div id="legal-modal" class="fixed inset-0 z-[500] flex items-center justify-center p-4 bg-black">
+        <div class="modal-glass max-w-3xl w-full p-12 rounded-[40px] space-y-8">
+            <h2 class="text-white font-black text-3xl uppercase italic text-center">Protocolo de Acesso 4CGCORE</h2>
+            <div class="h-64 overflow-y-auto p-6 bg-zinc-950 rounded-2xl text-[10px] space-y-4 border border-white/5">
+                <p class="text-green-500 font-bold underline">ISENÇÃO DE ÔNUS:</p>
+                <p>O desenvolvedor (bigkdt95) e o usuário declaram que este projeto é GRATUITO e ISENTO de qualquer transação financeira presente ou futura. Ambas as partes renunciam a qualquer direito de cobrança.</p>
+                <p class="text-green-500 font-bold underline">CESSÃO DE FEEDBACK:</p>
+                <p>Toda e qualquer ideia, sugestão ou conteúdo inserido pelo usuário é cedido de forma IRREVOGÁVEL e GRATUITA ao desenvolvedor, que detém o direito de usar esses dados em novos projetos independentes.</p>
+                <p class="text-green-500 font-bold underline">ACESSIBILIDADE:</p>
+                <p>Este sistema inclui ferramentas de adaptação visual para garantir o acesso universal à informação indexada.</p>
+            </div>
+            <button onclick="acceptTerms()" class="w-full py-6 bg-green-600 text-black font-black uppercase rounded-full hover:bg-white transition-all">
+                CONCORDAR E ATIVAR TERMINAL
+            </button>
+        </div>
+    </div>
+
+    <!-- BARRA DE FERRAMENTAS E ACESSIBILIDADE -->
+    <nav class="h-16 border-b border-white/10 bg-black/90 sticky top-0 z-[100] px-6 flex items-center justify-between backdrop-blur-md">
+        <div class="flex items-center gap-4">
+            <span class="text-xs font-black text-white tracking-widest uppercase">4CGCORE // CMD</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleContrast()" class="p-2 border border-white/10 rounded-lg hover:bg-white hover:text-black text-[10px] font-bold">CONTRASTE</button>
+            <button onclick="changeFontSize(1)" class="p-2 border border-white/10 rounded-lg hover:bg-white hover:text-black text-[10px] font-bold">A+</button>
+            <button onclick="changeFontSize(-1)" class="p-2 border border-white/10 rounded-lg hover:bg-white hover:text-black text-[10px] font-bold">A-</button>
+        </div>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-12 max-w-7xl mx-auto w-full space-y-12">
+        <!-- BUSCA POR METADADOS -->
+        <header class="text-center py-10">
+            <h1 class="text-5xl md:text-8xl font-black text-white italic uppercase tracking-tighter">CENTRAL_DOCS</h1>
+            <div class="relative max-w-2xl mx-auto mt-8">
+                <input type="text" id="main-search" onkeyup="searchTags()" placeholder="BUSCAR CAPÍTULOS, TAGS OU METADADOS..." 
+                    class="w-full bg-zinc-900 border-2 border-green-900/30 rounded-full px-12 py-6 text-sm text-white focus:border-green-500 outline-none transition-all shadow-2xl">
+                <i class="fas fa-search absolute left-6 top-7 text-green-900"></i>
+            </div>
+        </header>
+
+        <!-- GRID DE RECURSOS -->
+        <div id="resource-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- CAPÍTULO 1: FASCÍCULO 1 -->
+            <a href="xf-pvt/capitulo1.html" class="neon-border p-8 rounded-[40px] flex flex-col justify-between h-[400px]">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="px-3 py-1 bg-green-600 text-black text-[8px] font-black rounded-full uppercase">Fascículo 01</div>
+                        <i class="fas fa-book-open text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase italic">Capítulo 1: O Despertar dos Metadados</h3>
+                    <p class="text-[10px] mt-4 leading-relaxed uppercase font-bold text-zinc-500">A análise profunda dos primeiros registros indexados. Documentação completa de evidências.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[8px] border border-white/10 px-2 py-1 rounded bg-black">#METADADOS</span>
+                        <span class="text-[8px] border border-white/10 px-2 py-1 rounded bg-black">#CAP_01</span>
+                    </div>
+                    <div class="text-[9px] font-black text-green-500">ABRIR LEITURA COMPLETA →</div>
+                </div>
+            </a>
+
+            <!-- FERRAMENTA DE CRIAÇÃO (MODELO) -->
+            <div class="neon-border p-8 rounded-[40px] flex flex-col justify-between h-[400px] border-dashed border-zinc-700">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="px-3 py-1 bg-zinc-800 text-white text-[8px] font-black rounded-full uppercase">Criador</div>
+                        <i class="fas fa-pen-nib text-zinc-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-zinc-500 uppercase italic">Novo Conteúdo</h3>
+                    <p class="text-[10px] mt-4 leading-relaxed uppercase font-bold text-zinc-700">Modelo estrutural para novos fascículos com indexação automática.</p>
+                </div>
+                <button onclick="window.location.href='LICENSE'" class="text-[9px] font-black text-zinc-600 underline text-left">CONSULTAR TERMOS DE CRIAÇÃO</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-10 border-t border-white/5 bg-zinc-950/50 text-center">
+        <p class="text-[8px] font-black text-zinc-800 tracking-[1em] uppercase">4CGCORE // PROTEÇÃO JURÍDICA E ACESSIBILIDADE ATIVA</p>
+    </footer>
+
+    <script>
+        function acceptTerms() {
+            document.getElementById('legal-modal').style.display = 'none';
+            localStorage.setItem('4cg_supremo_auth', 'true');
+        }
+        window.onload = function() {
+            if(localStorage.getItem('4cg_supremo_auth')) document.getElementById('legal-modal').style.display = 'none';
+        }
+        function toggleContrast() { document.body.classList.toggle('high-contrast'); }
+        function changeFontSize(val) {
+            let s = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--font-size'));
+            document.documentElement.style.setProperty('--font-size', (s + val) + 'px');
+        }
+        function searchTags() {
+            let filter = document.getElementById('main-search').value.toLowerCase();
+            let cards = document.querySelectorAll('#resource-grid > a, #resource-grid > div');
+            cards.forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(filter) ? "flex" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
