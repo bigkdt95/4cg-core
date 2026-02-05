@@ -15,32 +15,33 @@
         .modal-glass { background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(20px); border: 1px solid #22c55e; }
     </style>
 </head>
-<body class="grid-bg min-h-screen flex flex-col selection:bg-green-600 selection:text-
-    <!-- Modal de Declaração de Isenção e Cessão de Direitos (Obrigatório) -->
+<body class="grid-bg min-h-screen flex flex-col selection:bg-green-600 selection:text-black">
+
+    <!-- Modal de Declaração de Isenção e Cessão de Direitos (Proteção Jurídica) -->
     <div id="legal-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/95">
         <div class="modal-glass max-w-2xl w-full p-10 rounded-[50px] space-y-8 shadow-2xl shadow-green-900/20">
             <div class="text-center">
                 <h2 class="text-white font-black text-2xl uppercase italic tracking-tighter">Declaração Consciente 4CGCORE</h2>
-                <p class="text-[9px] text-green-500 font-bold uppercase tracking-[0.4em] mt-2">Protocolo de Isenção e Proteção Autoral</p>
+                <p class="text-[9px] text-green-500 font-bold uppercase tracking-[0.4em] mt-2">Protocolo de Isenção e Autonomia Autoral</p>
             </div>
             
             <div class="text-[10px] text-zinc-400 text-left h-64 overflow-y-auto p-6 bg-zinc-950 rounded-3xl border border-white/5 space-y-6 leading-relaxed">
                 <section>
                     <p class="text-white uppercase font-black mb-2">1. Isenção Total de Ônus e Responsabilidade</p>
-                    <p>Este projeto é permanentemente gratuito. O desenvolvedor e os usuários isentam-se mutuamente de qualquer obrigação financeira ou responsabilidade por danos de qualquer natureza, em qualquer fase (Beta ou Definitiva).</p>
+                    <p>Este projeto é permanentemente gratuito. O desenvolvedor e os usuários isentam-se mutuamente de qualquer obrigação financeira ou responsabilidade por danos de qualquer natureza.</p>
                 </section>
                 <section>
                     <p class="text-white uppercase font-black mb-2">2. Propriedade Intelectual e Evolução</p>
-                    <p>O desenvolvedor detém pleno direito sobre a codificação. Elementos deste app podem ser usados em outros projetos independentes, sem vínculo com este, podendo estes novos projetos gerar bônus ou ônus exclusivos ao desenvolvedor.</p>
+                    <p>O desenvolvedor detém pleno direito sobre a codificação. Elementos deste app podem ser usados em outros projetos independentes, sem vínculo com este.</p>
                 </section>
                 <section>
-                    <p class="text-white uppercase font-black mb-2">3. Cessão de Feedback e Direitos de Terceiros</p>
-                    <p>Todo o feedback ou conteúdo compartilhado pelo usuário é cedido integralmente ao desenvolvedor sem qualquer obrigação futura. O conteúdo de terceiros (Arquivo X) é usado sob "Fair Use" informativo e não comercial.</p>
+                    <p class="text-white uppercase font-black mb-2">3. Cessão de Feedback Irrestrita</p>
+                    <p>Todo o feedback ou conteúdo compartilhado pelo usuário é cedido integralmente ao desenvolvedor sem qualquer obrigação futura de pagamento.</p>
                 </section>
             </div>
 
             <button onclick="acceptTerms()" class="w-full py-5 bg-green-600 text-black font-black uppercase text-xs rounded-full hover:bg-white transition-all">
-                Concordar e Acessar o Repositório
+                Concordar e Acessar o Sistema
             </button>
         </div>
     </div>
@@ -57,61 +58,52 @@
     <main class="flex-1 p-6 md:p-16 max-w-7xl mx-auto w-full space-y-16">
         <section class="text-center space-y-4">
             <h1 class="text-7xl md:text-9xl font-black text-white italic uppercase tracking-tighter leading-none">MYX_FILES</h1>
-            <p class="text-[10px] text-green-500 font-bold uppercase tracking-[0.8em] opacity-70 italic">Repositório Permanente em Desenvolvimento</p>
+            <p class="text-[10px] text-green-500 font-bold uppercase tracking-[0.8em] opacity-70 italic">Busca por Metadados Ativa</p>
         </section>
 
-        <!-- Motor de Busca por Metadados -->
+        <!-- Motor de Busca por Metadados (Recurso Essencial) -->
         <div class="relative max-w-3xl mx-auto group">
-            <input type="text" id="global-search" onkeyup="filterContent()" placeholder="PESQUISAR AGENTES, METADADOS OU TAGS INVESTIGATIVAS..." 
+            <input type="text" id="global-search" onkeyup="filterContent()" placeholder="PESQUISAR TAGS, METADADOS OU AGENTES..." 
                 class="w-full bg-zinc-950 border border-white/10 rounded-[40px] px-16 py-7 text-xs text-white outline-none focus:border-green-600 transition-all shadow-2xl">
             <i class="fas fa-search absolute left-8 top-8 text-zinc-700 group-focus-within:text-green-500"></i>
         </div>
 
         <div id="assets-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Card do Módulo Roswell (Futuro Direcionamento) -->
-            <div class="neon-border bg-zinc-900/20 p-12 rounded-[60px] group block relative opacity-50 cursor-not-allowed">
+            <!-- Card Conectado à Subpasta xf-pvt -->
+            <a href="xf-pvt/index.html" class="neon-border bg-zinc-900/20 p-12 rounded-[60px] group block relative overflow-hidden">
                 <div class="flex justify-between items-start mb-10">
-                    <div class="w-16 h-16 bg-green-600/10 rounded-3xl flex items-center justify-center text-green-500">
-                        <i class="fas fa-lock text-3xl"></i>
+                    <div class="w-16 h-16 bg-green-600/10 rounded-3xl flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-black transition-all">
+                        <i class="fas fa-folder-open text-3xl"></i>
                     </div>
-                    <span class="text-[9px] font-black text-zinc-700 uppercase tracking-widest">AGUARDANDO INDEXAÇÃO</span>
+                    <span class="text-[9px] font-black text-zinc-700 uppercase tracking-widest">STATUS: INDEXADO</span>
                 </div>
-                <h3 class="text-3xl font-black text-white uppercase italic mb-4">Módulo XF-PVT</h3>
-                <p class="text-[11px] text-zinc-500 leading-relaxed mb-10 uppercase font-bold italic">Indexação interativa de metadados em fase de preparação.</p>
-            </div>
+                <h3 class="text-3xl font-black text-white uppercase italic mb-4">Dossiê XF-PVT</h3>
+                <p class="text-[11px] text-zinc-500 leading-relaxed mb-10 uppercase font-bold italic">Banco de dados de episódios indexados por palavras-chave e metadados.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#METADADOS</span>
+                    <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#X_FILES</span>
+                </div>
+            </a>
         </div>
     </main>
 
     <footer class="p-16 border-t border-white/5 bg-black/80">
-        <div class="max-w-7xl mx-auto space-y-12 text-[10px] font-bold uppercase tracking-[0.3em] leading-relaxed text-zinc-600">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="space-y-4">
-                    <p class="text-white underline decoration-green-900 decoration-4 underline-offset-8">Não Onerosidade</p>
-                    <p>Isenção permanente de custos para todas as partes em qualquer fase do projeto.</p>
-                </div>
-                <div class="space-y-4">
-                    <p class="text-white underline decoration-green-900 decoration-4 underline-offset-8">Cessão de Feedback</p>
-                    <p>Contribuições de usuários são cedidas ao desenvolvedor para uso irrestrito.</p>
-                </div>
-                <div class="space-y-4">
-                    <p class="text-white underline decoration-green-900 decoration-4 underline-offset-8">Proteção Jurídica</p>
-                    <p>Isenção mútua de responsabilidade por danos. Conteúdo para maiores de 18 anos.</p>
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto text-center space-y-4">
+            <p class="text-[8px] font-black text-zinc-800 uppercase tracking-[0.5em]">4CGCORE // PROTEÇÃO JURÍDICA ATIVA</p>
         </div>
     </footer>
 
     <script>
         function acceptTerms() {
             document.getElementById('legal-modal').style.display = 'none';
-            localStorage.setItem('4cg_accepted', 'true');
+            localStorage.setItem('4cg_master_accepted', 'true');
         }
         window.onload = function() {
-            if(localStorage.getItem('4cg_accepted')) document.getElementById('legal-modal').style.display = 'none';
+            if(localStorage.getItem('4cg_master_accepted')) document.getElementById('legal-modal').style.display = 'none';
         }
         function filterContent() {
             let input = document.getElementById('global-search').value.toLowerCase();
-            let cards = document.querySelectorAll('#assets-grid > div');
+            let cards = document.querySelectorAll('#assets-grid > a');
             cards.forEach(card => {
                 let text = card.innerText.toLowerCase();
                 card.style.display = text.includes(input) ? "block" : "none";
