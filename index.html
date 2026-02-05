@@ -1,112 +1,196 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4CGCORE MYXFILES - Central de Comando Force G</title>
+    <title>4CGCORE - COMMAND CENTER</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap');
-        body { background: #000; color: #71717a; font-family: 'JetBrains+Mono', monospace; }
-        .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 30px 30px; }
-        .neon-border { border: 1px solid rgba(34, 197, 94, 0.2); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .neon-border:hover { border-color: #22c55e; box-shadow: 0 0 30px rgba(34, 197, 94, 0.15); }
-        .modal-glass { background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(20px); border: 1px solid #22c55e; }
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+        body { background: #000; color: #a1a1aa; font-family: 'JetBrains+Mono', monospace; overflow-x: hidden; }
+        .grid-bg { background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 40px 40px; }
+        .neon-border { border: 1px solid rgba(34, 197, 94, 0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(10,10,10,0.8); }
+        .neon-border:hover { border-color: #22c55e; box-shadow: 0 0 40px rgba(34, 197, 94, 0.1); transform: translateY(-5px); }
+        .modal-glass { background: rgba(0, 0, 0, 0.98); border: 1px solid #22c55e; box-shadow: 0 0 100px rgba(0,0,0,1); }
+        .status-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body class="grid-bg min-h-screen flex flex-col selection:bg-green-600 selection:text-black">
 
-    <!-- Modal de Declaração de Isenção e Cessão de Direitos (Proteção Jurídica) -->
-    <div id="legal-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/95">
-        <div class="modal-glass max-w-2xl w-full p-10 rounded-[50px] space-y-8 shadow-2xl shadow-green-900/20">
+    <!-- PROTEÇÃO JURÍDICA: BLOQUEIO INICIAL -->
+    <div id="legal-modal" class="fixed inset-0 z-[500] flex items-center justify-center p-4 bg-black">
+        <div class="modal-glass max-w-3xl w-full p-12 rounded-[60px] space-y-8">
             <div class="text-center">
-                <h2 class="text-white font-black text-2xl uppercase italic tracking-tighter">Declaração Consciente 4CGCORE</h2>
-                <p class="text-[9px] text-green-500 font-bold uppercase tracking-[0.4em] mt-2">Protocolo de Isenção e Autonomia Autoral</p>
+                <div class="inline-block px-4 py-1 border border-green-500/30 rounded-full mb-4">
+                    <span class="text-[8px] text-green-500 font-black tracking-[0.5em] uppercase">Security Protocol Alpha</span>
+                </div>
+                <h2 class="text-white font-black text-3xl uppercase italic tracking-tighter">4CGCORE: DECLARAÇÃO CONSCIENTE</h2>
             </div>
             
-            <div class="text-[10px] text-zinc-400 text-left h-64 overflow-y-auto p-6 bg-zinc-950 rounded-3xl border border-white/5 space-y-6 leading-relaxed">
+            <div class="text-[10px] text-zinc-500 text-left h-72 overflow-y-auto p-8 bg-black rounded-3xl border border-white/5 space-y-6 leading-relaxed">
                 <section>
-                    <p class="text-white uppercase font-black mb-2">1. Isenção Total de Ônus e Responsabilidade</p>
-                    <p>Este projeto é permanentemente gratuito. O desenvolvedor e os usuários isentam-se mutuamente de qualquer obrigação financeira ou responsabilidade por danos de qualquer natureza.</p>
+                    <p class="text-white uppercase font-black mb-2 underline decoration-green-600">1. Isenção Total de Ónus (Não Onerosidade)</p>
+                    <p>O 4CGCORE é um ecossistema permanentemente gratuito. Não existe, nem existirá em qualquer fase (Beta ou Final), qualquer obrigação financeira ou cobrança. Desenvolvedor e utilizadores isentam-se mutuamente de qualquer responsabilidade civil ou financeira.</p>
                 </section>
                 <section>
-                    <p class="text-white uppercase font-black mb-2">2. Propriedade Intelectual e Evolução</p>
-                    <p>O desenvolvedor detém pleno direito sobre a codificação. Elementos deste app podem ser usados em outros projetos independentes, sem vínculo com este.</p>
+                    <p class="text-white uppercase font-black mb-2 underline decoration-green-600">2. Cessão de Feedback e Direitos Autorais</p>
+                    <p>Ao utilizar e fornecer sugestões, o utilizador CEDE INTEGRALMENTE todos os direitos de tais ideias ao desenvolvedor. O desenvolvedor detém a propriedade intelectual do código e pode utilizá-lo em outros projetos independentes, com ou sem fins lucrativos, sem qualquer vínculo com este portal.</p>
                 </section>
                 <section>
-                    <p class="text-white uppercase font-black mb-2">3. Cessão de Feedback Irrestrita</p>
-                    <p>Todo o feedback ou conteúdo compartilhado pelo usuário é cedido integralmente ao desenvolvedor sem qualquer obrigação futura de pagamento.</p>
+                    <p class="text-white uppercase font-black mb-2 underline decoration-green-600">3. Indexação e Fair Use</p>
+                    <p>Este sistema serve para indexação de metadados e informação. Conteúdos de terceiros (como Arquivo X) são usados sob a doutrina de "Fair Use" informativo.</p>
                 </section>
             </div>
 
-            <button onclick="acceptTerms()" class="w-full py-5 bg-green-600 text-black font-black uppercase text-xs rounded-full hover:bg-white transition-all">
-                Concordar e Acessar o Sistema
+            <button onclick="acceptTerms()" class="w-full py-6 bg-green-600 text-black font-black uppercase text-xs rounded-full hover:bg-white transition-all shadow-2xl shadow-green-600/20">
+                LI, COMPREENDO E ACEITO OS TERMOS (INGRESSAR)
             </button>
         </div>
     </div>
 
-    <!-- Interface Principal -->
-    <header class="h-16 border-b border-white/5 bg-black/90 flex items-center justify-between px-8 sticky top-0 z-[110]">
-        <div class="flex items-center gap-4">
-            <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"></div>
-            <span class="text-[10px] font-black text-white uppercase tracking-[0.5em]">4CGCORE // MYXFILES</span>
+    <!-- HEADER DE STATUS -->
+    <header class="h-20 border-b border-white/5 bg-black/90 flex items-center justify-between px-10 sticky top-0 z-[100] backdrop-blur-md">
+        <div class="flex items-center gap-6">
+            <div class="flex flex-col">
+                <span class="text-[12px] font-black text-white tracking-[0.4em] uppercase">4CGCORE // MYXFILES</span>
+                <span class="text-[8px] text-green-500 font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 status-pulse"></span> Sistema Operacional Ativo
+                </span>
+            </div>
         </div>
-        <div class="text-[8px] font-bold uppercase text-zinc-600 italic">Beta Interativo Permanente</div>
+        <div class="hidden md:flex gap-8 text-[9px] font-bold uppercase text-zinc-600 italic">
+            <span>Server: GitHub_Cloud</span>
+            <span>Security: encrypted_v4</span>
+            <span class="text-zinc-400">User: bigkdt95</span>
+        </div>
     </header>
 
-    <main class="flex-1 p-6 md:p-16 max-w-7xl mx-auto w-full space-y-16">
-        <section class="text-center space-y-4">
-            <h1 class="text-7xl md:text-9xl font-black text-white italic uppercase tracking-tighter leading-none">MYX_FILES</h1>
-            <p class="text-[10px] text-green-500 font-bold uppercase tracking-[0.8em] opacity-70 italic">Busca por Metadados Ativa</p>
+    <main class="flex-1 p-6 md:p-20 max-w-7xl mx-auto w-full space-y-20">
+        
+        <!-- BUSCA GLOBAL POR METADADOS -->
+        <section class="space-y-10">
+            <div class="text-center space-y-4">
+                <h1 class="text-6xl md:text-9xl font-black text-white italic uppercase tracking-tighter leading-none">COMMAND_CENTER</h1>
+                <p class="text-[10px] text-green-500 font-bold uppercase tracking-[0.8em] opacity-60">Motor de Busca e Indexação Force G</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto group">
+                <input type="text" id="global-search" onkeyup="filterContent()" 
+                    placeholder="INTRODUZA TAGS, AGENTES, METADADOS OU REF_ID..." 
+                    class="w-full bg-zinc-900/50 border-2 border-white/5 rounded-[50px] px-16 py-8 text-sm text-white outline-none focus:border-green-600 transition-all shadow-2xl placeholder:text-zinc-700">
+                <i class="fas fa-search absolute left-8 top-1/2 -translate-y-1/2 text-zinc-700 group-focus-within:text-green-500"></i>
+            </div>
         </section>
 
-        <!-- Motor de Busca por Metadados (Recurso Essencial) -->
-        <div class="relative max-w-3xl mx-auto group">
-            <input type="text" id="global-search" onkeyup="filterContent()" placeholder="PESQUISAR TAGS, METADADOS OU AGENTES..." 
-                class="w-full bg-zinc-950 border border-white/10 rounded-[40px] px-16 py-7 text-xs text-white outline-none focus:border-green-600 transition-all shadow-2xl">
-            <i class="fas fa-search absolute left-8 top-8 text-zinc-700 group-focus-within:text-green-500"></i>
-        </div>
-
-        <div id="assets-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Card Conectado à Subpasta xf-pvt -->
-            <a href="xf-pvt/index.html" class="neon-border bg-zinc-900/20 p-12 rounded-[60px] group block relative overflow-hidden">
-                <div class="flex justify-between items-start mb-10">
-                    <div class="w-16 h-16 bg-green-600/10 rounded-3xl flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-black transition-all">
-                        <i class="fas fa-folder-open text-3xl"></i>
+        <!-- DASHBOARD DE RECURSOS CONSOLIDADOS -->
+        <div id="assets-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- RECURSO: DOSSIÊ XF-PVT -->
+            <a href="xf-pvt/index.html" class="neon-border p-10 rounded-[50px] group flex flex-col justify-between h-[380px]">
+                <div class="space-y-6">
+                    <div class="w-14 h-14 bg-green-600/10 rounded-2xl flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-black transition-all">
+                        <i class="fas fa-folder-tree text-2xl"></i>
                     </div>
-                    <span class="text-[9px] font-black text-zinc-700 uppercase tracking-widest">STATUS: INDEXADO</span>
+                    <div>
+                        <h3 class="text-2xl font-black text-white uppercase italic">Dossiê XF-PVT</h3>
+                        <p class="text-[10px] text-zinc-500 mt-2 font-bold uppercase tracking-wider">Indexação de Metadados X-Files</p>
+                    </div>
                 </div>
-                <h3 class="text-3xl font-black text-white uppercase italic mb-4">Dossiê XF-PVT</h3>
-                <p class="text-[11px] text-zinc-500 leading-relaxed mb-10 uppercase font-bold italic">Banco de dados de episódios indexados por palavras-chave e metadados.</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#METADADOS</span>
-                    <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#X_FILES</span>
+                <div class="space-y-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#S01_S11</span>
+                        <span class="text-[8px] bg-black px-3 py-1 rounded-full border border-white/5 text-green-800 font-black">#TAGS_INDEX</span>
+                    </div>
+                    <div class="text-[9px] font-black text-zinc-700 group-hover:text-green-500 transition-colors">ACEDER À BASE DE DADOS →</div>
                 </div>
             </a>
+
+            <!-- RECURSO: EXPLORADOR DE METADADOS -->
+            <div class="neon-border p-10 rounded-[50px] group flex flex-col justify-between h-[380px] opacity-60">
+                <div class="space-y-6">
+                    <div class="w-14 h-14 bg-zinc-800 rounded-2xl flex items-center justify-center text-zinc-500">
+                        <i class="fas fa-tags text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-white uppercase italic">Tags & Etiquetas</h3>
+                        <p class="text-[10px] text-zinc-500 mt-2 font-bold uppercase tracking-wider">Gestão de busca por palavras-chave</p>
+                    </div>
+                </div>
+                <div class="text-[8px] bg-zinc-950 p-4 rounded-2xl border border-white/5">
+                    SISTEMA DE ETIQUETAGEM AUTOMÁTICA EM DESENVOLVIMENTO.
+                </div>
+            </a>
+
+            <!-- RECURSO: COFRE DE SEGURANÇA -->
+            <div class="neon-border p-10 rounded-[50px] group flex flex-col justify-between h-[380px] border-dashed border-zinc-800">
+                <div class="space-y-6">
+                    <div class="w-14 h-14 bg-red-900/10 rounded-2xl flex items-center justify-center text-red-900">
+                        <i class="fas fa-vault text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-zinc-600 uppercase italic">Cofre_04</h3>
+                        <p class="text-[10px] text-zinc-700 mt-2 font-bold uppercase tracking-wider">Acesso Restrito Force G</p>
+                    </div>
+                </div>
+                <div class="text-[9px] text-zinc-800 font-black uppercase italic tracking-tighter">
+                    Aguardando Credenciais de Nível Superior.
+                </div>
+            </div>
+
+            <!-- RECURSO: CESSÃO E DOCUMENTAÇÃO JURÍDICA -->
+            <a href="LICENSE" class="neon-border p-10 rounded-[50px] group flex flex-col justify-between h-[380px]">
+                <div class="space-y-6">
+                    <div class="w-14 h-14 bg-zinc-600/10 rounded-2xl flex items-center justify-center text-zinc-400 group-hover:bg-white group-hover:text-black transition-all">
+                        <i class="fas fa-gavel text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-white uppercase italic">Protocolo Legal</h3>
+                        <p class="text-[10px] text-zinc-500 mt-2 font-bold uppercase tracking-wider">Isenção e Cessão de Feedback</p>
+                    </div>
+                </div>
+                <div class="text-[9px] font-black text-zinc-700 underline group-hover:text-white transition-colors">VER CONTRATO DE NÃO ONEROSIDADE</div>
+            </a>
+
         </div>
     </main>
 
-    <footer class="p-16 border-t border-white/5 bg-black/80">
-        <div class="max-w-7xl mx-auto text-center space-y-4">
-            <p class="text-[8px] font-black text-zinc-800 uppercase tracking-[0.5em]">4CGCORE // PROTEÇÃO JURÍDICA ATIVA</p>
+    <footer class="p-20 border-t border-white/5 bg-black/95">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-4">
+                <p class="text-[10px] text-white font-black uppercase italic tracking-[0.2em]">Resumo do Protocolo 4CGCORE</p>
+                <p class="text-[9px] leading-loose text-zinc-600 uppercase font-bold">
+                    O desenvolvedor detém autonomia total sobre o código. O utilizador cede feedback integralmente. Projeto sem qualquer custo para ambas as partes. Versão Beta Permanente.
+                </p>
+            </div>
+            <div class="flex md:justify-end items-end">
+                <div class="text-right">
+                    <p class="text-[8px] font-black text-zinc-800 uppercase tracking-widest">System Build: 4CG_2026_CORE</p>
+                    <p class="text-[8px] font-black text-zinc-500 uppercase tracking-widest">DEVELOPER: BIGKDT95 // FORCE G PROTOCOL</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
         function acceptTerms() {
             document.getElementById('legal-modal').style.display = 'none';
-            localStorage.setItem('4cg_master_accepted', 'true');
+            localStorage.setItem('4cg_master_access', 'true');
         }
+        
         window.onload = function() {
-            if(localStorage.getItem('4cg_master_accepted')) document.getElementById('legal-modal').style.display = 'none';
+            if(localStorage.getItem('4cg_master_access')) {
+                document.getElementById('legal-modal').style.display = 'none';
+            }
         }
+
         function filterContent() {
             let input = document.getElementById('global-search').value.toLowerCase();
-            let cards = document.querySelectorAll('#assets-grid > a');
+            let cards = document.querySelectorAll('#assets-grid > a, #assets-grid > div');
             cards.forEach(card => {
                 let text = card.innerText.toLowerCase();
-                card.style.display = text.includes(input) ? "block" : "none";
+                card.style.display = text.includes(input) ? "flex" : "none";
             });
         }
     </script>
