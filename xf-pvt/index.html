@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4CGCORE - DOSSIÊ XF-PVT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap');
+        body { background: #050505; color: #a1a1aa; font-family: 'JetBrains+Mono', monospace; }
+        .data-row { border-bottom: 1px solid rgba(34, 197, 94, 0.1); transition: all 0.3s; }
+        .data-row:hover { background: rgba(34, 197, 94, 0.05); color: #fff; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    <header class="mb-12 flex justify-between items-center border-b border-white/10 pb-6">
+        <div>
+            <h1 class="text-2xl font-black text-white italic uppercase tracking-tighter">INDEXAÇÃO_METADADOS</h1>
+            <p class="text-[9px] text-green-500 font-bold uppercase tracking-widest">Protocolo Force G // Nível 4</p>
+        </div>
+        <a href="../index.html" class="text-[10px] text-zinc-500 hover:text-white uppercase font-black border border-zinc-800 px-4 py-2 rounded-full">Voltar ao Comando</a>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="bg-zinc-900/30 rounded-3xl p-8 border border-white/5">
+            <h2 class="text-xs font-black text-green-600 uppercase mb-6 tracking-[0.3em]">Registos de Episódios Indexados</h2>
+            
+            <div id="episodes-list" class="space-y-2">
+                <!-- Exemplo de Linha de Dados com Metadados -->
+                <div class="data-row p-4 flex flex-col md:flex-row justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[8px] font-black text-zinc-600 block">REF: S01E01</span>
+                        <p class="text-sm font-bold text-zinc-100 italic uppercase">Piloto - O Início</p>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <span class="text-[9px] bg-green-900/20 text-green-500 px-3 py-1 rounded-md font-bold">#ALIEN_ABDUCTION</span>
+                        <span class="text-[9px] bg-zinc-800 text-zinc-400 px-3 py-1 rounded-md font-bold">#OREGON</span>
+                    </div>
+                </div>
+
+                <div class="data-row p-4 flex flex-col md:flex-row justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[8px] font-black text-zinc-600 block">REF: S01E02</span>
+                        <p class="text-sm font-bold text-zinc-100 italic uppercase">Deep Throat</p>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <span class="text-[9px] bg-green-900/20 text-green-500 px-3 py-1 rounded-md font-bold">#GOV_CONSPIRACY</span>
+                        <span class="text-[9px] bg-zinc-800 text-zinc-400 px-3 py-1 rounded-md font-bold">#UFO_TECH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 border border-dashed border-zinc-800 rounded-3xl text-center">
+            <p class="text-[10px] text-zinc-600 font-bold uppercase italic">Aguardando inserção de novos metadados via interface Force G</p>
+        </div>
+    </main>
+
+    <footer class="mt-20 text-center">
+        <p class="text-[8px] text-zinc-800 font-black uppercase tracking-widest">Acesso Restrito // Isenção de Ônus Confirmada</p>
+    </footer>
+</body>
+</html>
