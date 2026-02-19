@@ -1,0 +1,21 @@
+{
+  "mascote": {
+    "nome": "ClippXio AI",
+    "versao": "1.0",
+    "personalidade": "Proativo, organizado e motivador",
+    "frases_boas_vindas": [
+      "Olá! Vamos organizar os teus ficheiros hoje?",
+      "Pronto para ganhar mais ClippX Coins?",
+      "O sistema X-Ray está ativo e pronto para procurar!"
+    ],
+    "alertas": {
+      "sem_tags": "Atenção! Este ficheiro está sem etiquetas. Vamos indexá-lo?",
+      "meta_atingida": "Incrível! Completaste a tua meta de organização semanal!",
+      "baixa_economia": "A tua carteira de CXC está baixa. Organiza 5 ficheiros para recuperar!"
+    },
+    "sugestoes_studio": [
+      "Vi que tens novas fotos de #obra. Queres criar um Reel de evolução?",
+      "Tens memórias de #familia de hoje. Queres gerar um Card de recordação?"
+    ]
+  }
+}
