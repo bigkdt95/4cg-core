@@ -2,89 +2,108 @@
 <html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClippXio - G4C Core</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ClippXio | G4C Core</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background: #0f172a; color: white; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        .coin-glow { filter: drop-shadow(0 0 8px #fbbf24); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #05070a; 
+            color: #ffffff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 25, 40, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+        .xray-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        .coin-badge {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+        .search-ring:focus-within {
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
     </style>
 </head>
-<body class="p-4 md:p-8">
-    <div class="max-w-4xl mx-auto space-y-6">
-        
-        <!-- Header & Moedas -->
-        <header class="flex justify-between items-center glass p-4 rounded-2xl">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">X</div>
-                <h1 class="text-xl font-bold tracking-tight">ClippXio</h1>
+<body class="min-h-screen pb-20">
+    <!-- Header -->
+    <nav class="p-6 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 xray-gradient rounded-xl flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
-            <div class="flex items-center gap-2 bg-yellow-500/20 px-4 py-2 rounded-full border border-yellow-500/50">
-                <span class="text-yellow-400 font-bold coin-glow">🪙</span>
-                <span id="balance" class="text-yellow-400 font-bold">1,250 CXC</span>
-            </div>
-        </header>
+            <span class="font-extrabold text-xl tracking-tight">ClippXio</span>
+        </div>
+        <div class="coin-badge px-4 py-2 rounded-full flex items-center gap-2 font-bold text-sm">
+            <span>🪙</span>
+            <span>1.250 CXC</span>
+        </div>
+    </nav>
 
-        <!-- Mascote & Mensagem IA -->
-        <section class="glass p-6 rounded-3xl flex flex-col md:flex-row items-center gap-6 relative overflow-hidden">
-            <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center text-5xl shadow-lg shadow-blue-500/20">
-                🤖
-            </div>
-            <div class="flex-1 space-y-2">
-                <h2 class="text-blue-400 font-semibold uppercase text-sm tracking-widest">ClippXio AI Assistant</h2>
-                <p id="ai-message" class="text-lg text-slate-200 leading-relaxed">"Olá! Vamos organizar os teus ficheiros hoje para ganhar mais moedas?"</p>
-                <div class="flex gap-2">
-                    <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded border border-blue-500/20">#ativo</span>
-                    <span class="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded border border-green-500/20">#x-ray-on</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Motor de Busca X-Ray -->
-        <section class="space-y-4">
+    <main class="px-6 space-y-8">
+        <!-- IA / Mascote Section -->
+        <div class="glass-card p-6 flex items-center gap-5">
             <div class="relative">
-                <input type="text" placeholder="Pesquisar por #tags ou metadados..." 
-                       class="w-full bg-slate-800 border-2 border-slate-700 p-4 pl-12 rounded-2xl focus:border-blue-500 outline-none transition-all">
-                <span class="absolute left-4 top-4 text-slate-400">🔍</span>
+                <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center border border-blue-500/30">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                </div>
+                <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[#05070a] animate-pulse"></div>
             </div>
-            <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                <button class="whitespace-nowrap px-4 py-2 glass rounded-full text-sm hover:bg-blue-600 transition">#obra</button>
-                <button class="whitespace-nowrap px-4 py-2 glass rounded-full text-sm hover:bg-blue-600 transition">#projeto</button>
-                <button class="whitespace-nowrap px-4 py-2 glass rounded-full text-sm hover:bg-blue-600 transition">#entrega</button>
-                <button class="whitespace-nowrap px-4 py-2 glass rounded-full text-sm hover:bg-blue-600 transition">#fatura</button>
+            <div>
+                <p class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">X-Ray Assistant</p>
+                <p class="text-slate-300 text-sm leading-tight">"Encontrei 3 ficheiros de <span class="text-white font-bold">#obra</span> sem etiquetas. Queres tratar disso agora?"</p>
             </div>
-        </section>
-
-        <!-- Studio Criativo & Ações -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button class="glass p-6 rounded-2xl hover:bg-blue-600/20 transition text-left group border-l-4 border-l-blue-500">
-                <h3 class="font-bold text-lg flex items-center gap-2">
-                    🎬 Studio Criativo <span class="group-hover:translate-x-1 transition">→</span>
-                </h3>
-                <p class="text-slate-400 text-sm mt-1">Gerar Reels e Cards automaticamente.</p>
-            </button>
-            <button class="glass p-6 rounded-2xl hover:bg-purple-600/20 transition text-left group border-l-4 border-l-purple-500">
-                <h3 class="font-bold text-lg flex items-center gap-2">
-                    📂 Indexar Novo <span class="group-hover:translate-x-1 transition">+</span>
-                </h3>
-                <p class="text-slate-400 text-sm mt-1">Adicionar etiquetas e ganhar CXC.</p>
-            </button>
         </div>
 
-    </div>
+        <!-- Central de Busca (O Core do Aplicativo) -->
+        <div class="space-y-4">
+            <div class="search-ring relative glass-card overflow-hidden transition-all">
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <input type="text" placeholder="Procurar por metadados ou #tags..." 
+                       class="w-full bg-transparent p-5 pl-12 outline-none text-white placeholder:text-slate-600">
+            </div>
+            <div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+                <span class="px-4 py-2 bg-slate-800 rounded-lg text-xs font-semibold text-slate-300">#setor-a</span>
+                <span class="px-4 py-2 bg-slate-800 rounded-lg text-xs font-semibold text-slate-300">#urgente</span>
+                <span class="px-4 py-2 bg-slate-800 rounded-lg text-xs font-semibold text-slate-300">#concluido</span>
+                <span class="px-4 py-2 bg-slate-800 rounded-lg text-xs font-semibold text-slate-300">#referencia</span>
+            </div>
+        </div>
 
-    <script>
-        // Simulação de carregamento de dados do repositório
-        console.log("ClippXio v1.0 - Sistema G4C Core Carregado.");
-        
-        // Função para simular ganho de moedas
-        function addCoins(amount) {
-            const el = document.getElementById('balance');
-            let current = parseInt(el.innerText.replace(',', ''));
-            el.innerText = (current + amount).toLocaleString() + ' CXC';
-        }
-    </script>
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="glass-card p-5 border-b-4 border-blue-500 active:scale-95 transition-transform">
+                <div class="mb-3 text-blue-500">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                </div>
+                <h3 class="font-bold text-sm">Novo Index</h3>
+                <p class="text-[10px] text-slate-500 mt-1">+50 CXC p/ tag</p>
+            </div>
+            <div class="glass-card p-5 border-b-4 border-purple-500 active:scale-95 transition-transform">
+                <div class="mb-3 text-purple-500">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                </div>
+                <h3 class="font-bold text-sm">Studio Studio</h3>
+                <p class="text-[10px] text-slate-500 mt-1">Gerar Reels IA</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-6 left-6 right-6 glass-card p-4 flex justify-around items-center border border-white/20 shadow-2xl">
+        <div class="text-blue-500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="text-slate-500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="text-slate-500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+    </div>
 </body>
 </html>
