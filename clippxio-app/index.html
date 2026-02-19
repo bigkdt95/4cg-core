@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClippXio G4C - Official Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2563eb; --accent: #f59e0b; }
+        body { font-family: 'Inter', sans-serif; background: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .clippx-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); }
+        .mascot-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .nav-active { background: var(--primary); color: white; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="hide-scroll">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="fixed left-0 top-0 h-full w-20 lg:w-64 glass border-r border-white/5 flex flex-col z-50 transition-all duration-300">
+        <div class="p-8 flex items-center gap-3">
+            <div class="w-10 h-10 clippx-gradient rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <i data-lucide="paperclip" class="text-white"></i>
+            </div>
+            <span class="font-black text-xl italic hidden lg:block tracking-tighter uppercase">Clipp<span class="text-blue-500">Xio</span></span>
+        </div>
+
+        <nav class="flex-1 px-4 py-4 space-y-2">
+            <button onclick="showTab('dash')" class="tab-btn nav-active w-full flex items-center gap-4 p-4 rounded-2xl transition-all">
+                <i data-lucide="layout-dashboard"></i><span class="font-bold text-xs hidden lg:block uppercase tracking-widest">Dashboard</span>
+            </button>
+            <button onclick="showTab('xray')" class="tab-btn w-full flex items-center gap-4 p-4 rounded-2xl text-slate-500 hover:bg-white/5 transition-all">
+                <i data-lucide="search"></i><span class="font-bold text-xs hidden lg:block uppercase tracking-widest text-[10px]">Busca X-Ray</span>
+            </button>
+            <button onclick="showTab('timeline')" class="tab-btn w-full flex items-center gap-4 p-4 rounded-2xl text-slate-500 hover:bg-white/5 transition-all">
+                <i data-lucide="calendar"></i><span class="font-bold text-xs hidden lg:block uppercase tracking-widest text-[10px]">Cronograma</span>
+            </button>
+            <button onclick="showTab('studio')" class="tab-btn w-full flex items-center gap-4 p-4 rounded-2xl text-slate-500 hover:bg-white/5 transition-all">
+                <i data-lucide="video"></i><span class="font-bold text-xs hidden lg:block uppercase tracking-widest text-[10px]">Studio Criativo</span>
+            </button>
+            <button onclick="showTab('store')" class="tab-btn w-full flex items-center gap-4 p-4 rounded-2xl text-slate-500 hover:bg-white/5 transition-all">
+                <i data-lucide="shopping-bag"></i><span class="font-bold text-xs hidden lg:block uppercase tracking-widest text-[10px]">Loja de Skins</span>
+            </button>
+        </nav>
+
+        <div class="p-6">
+            <div class="bg-slate-900/80 p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+                <i data-lucide="coins" class="text-yellow-500"></i>
+                <div class="hidden lg:block">
+                    <p class="text-[8px] font-black text-yellow-500/50 uppercase leading-none mb-1">ClippX Coins</p>
+                    <p class="text-sm font-black text-yellow-500">2.450 <span class="text-[10px] opacity-50">CXC</span></p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="ml-20 lg:ml-64 min-h-screen p-6 lg:p-10">
+        
+        <!-- DASHBOARD TAB -->
+        <section id="tab-dash" class="tab-content space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <header class="flex justify-between items-end">
+                <div>
+                    <h1 class="text-3xl lg:text-5xl font-black italic tracking-tighter uppercase mb-2">Controle <span class="text-blue-500">G4C</span></h1>
+                    <p class="text-slate-400 font-medium">Gestão Inteligente de Mídia e Metadados.</p>
+                </div>
+                <button class="bg-blue-600 px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-blue-900/30 flex items-center gap-3 active:scale-95 transition-all">
+                    <i data-lucide="plus" class="w-4 h-4"></i> Novo ClippX
+                </button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Status Obra/Escola -->
+                <div class="glass p-8 rounded-[3rem] border-l-4 border-l-blue-600">
+                    <h3 class="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-4">Lembrete de Hoje</h3>
+                    <p class="text-xl font-black italic mb-2 leading-tight">Indexar Fotos da Obra - Setor 02</p>
+                    <div class="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase tracking-widest">
+                        <i data-lucide="clock" class="w-3 h-3"></i> 14:00 • Google Cal
+                    </div>
+                </div>
+                <!-- Produtividade -->
+                <div class="glass p-8 rounded-[3rem] border-l-4 border-l-yellow-500">
+                    <h3 class="text-[10px] font-black uppercase tracking-widest text-yellow-500 mb-4">Meta Semanal (CXC)</h3>
+                    <p class="text-xl font-black italic mb-2">92% Organizado</p>
+                    <div class="w-full h-1.5 bg-slate-800 rounded-full mt-4">
+                        <div class="h-full bg-yellow-500 rounded-full w-[92%] shadow-[0_0_15px_rgba(234,179,8,0.5)]"></div>
+                    </div>
+                </div>
+                <!-- IA Studio -->
+                <div class="bg-gradient-to-br from-indigo-600 to-blue-800 p-8 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                    <i data-lucide="sparkles" class="absolute right-[-20px] top-[-20px] w-40 h-40 text-white/10 group-hover:rotate-12 transition-all"></i>
+                    <h3 class="text-[10px] font-black uppercase tracking-widest text-white/70 mb-4 font-black">Studio ClippXio</h3>
+                    <p class="text-xl font-black italic mb-6 text-white leading-tight">Criar Card de Páscoa?</p>
+                    <button class="bg-white/20 hover:bg-white text-blue-900 px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all">Abrir Studio</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUTRAS ABAS (Placeholder) -->
+        <section id="tab-xray" class="tab-content hidden animate-in fade-in duration-300">
+            <h2 class="text-2xl font-black italic uppercase mb-8">Sistema de Busca <span class="text-blue-500">X-Ray</span></h2>
+            <div class="glass p-6 rounded-3xl flex gap-4 border border-white/10">
+                <input type="text" placeholder="Busca por #tags, palavras-chave ou datas..." class="bg-transparent flex-1 outline-none font-bold text-sm">
+                <button class="bg-blue-600 p-4 rounded-2xl shadow-lg"><i data-lucide="search"></i></button>
+            </div>
+        </section>
+
+        <!-- MARKETPLACE TAB -->
+        <section id="tab-store" class="tab-content hidden space-y-10 animate-in fade-in duration-300">
+            <h2 class="text-2xl font-black italic uppercase">Loja de Itens e <span class="text-blue-500">Templates</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass p-6 rounded-[2.5rem] hover:border-blue-500/50 transition-all text-center">
+                    <div class="h-32 bg-slate-900 rounded-2xl mb-4 flex items-center justify-center text-blue-400">
+                        <i data-lucide="instagram" size="48"></i>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-500 mb-1 uppercase tracking-widest">Template</p>
+                    <h4 class="font-bold text-sm mb-4">Pack Reels Escola</h4>
+                    <button class="w-full py-3 bg-white/5 rounded-xl flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest hover:bg-blue-600">
+                        <i data-lucide="coins" class="w-3 h-3 text-yellow-500"></i> 150 CXC
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MASCOTE CLIPPXIO INTERATIVO -->
+    <div id="mascot-box" class="fixed bottom-10 right-6 lg:right-10 z-[100] transition-all duration-700">
+        <div class="bg-white rounded-[3rem] shadow-2xl p-8 w-[22rem] relative mascot-float">
+            <div class="absolute top-0 left-0 w-full h-3 clippx-gradient"></div>
+            
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 bg-slate-950 rounded-2xl flex items-center justify-center shadow-lg">
+                    <div class="text-blue-500">
+                        <div class="flex gap-1 justify-center mb-1">
+                            <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                            <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        </div>
+                        <div class="w-8 h-1 bg-blue-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-slate-950 font-black text-sm uppercase tracking-widest italic">ClippXio</h4>
+                    <p class="text-[9px] font-black text-green-600 uppercase tracking-widest flex items-center gap-1">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span> Online & Sync
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-slate-600 text-sm font-medium mb-8 leading-relaxed">
+                "Notei novos arquivos na pasta <b>Escola</b>. Deseja que eu gere um <b>Reel de Recordação</b> com o template que você adquiriu?"
+            </p>
+
+            <div class="flex gap-3">
+                <button class="flex-1 bg-blue-600 text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-blue-200">
+                    Criar Mídia
+                </button>
+                <button onclick="toggleMascot()" class="px-5 py-4 bg-slate-100 text-slate-400 rounded-2xl font-black text-[10px] uppercase hover:bg-slate-200">
+                    Agora não
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE PARA CHAMAR O CLIPPXIO -->
+    <button id="mascot-btn" onclick="toggleMascot()" class="fixed bottom-10 right-10 w-16 h-16 clippx-gradient rounded-[1.5rem] shadow-2xl hidden items-center justify-center text-white hover:scale-110 transition-all z-50">
+        <i data-lucide="message-square"></i>
+    </button>
+
+    <!-- FOOTER DE INTEGRAÇÃO -->
+    <footer class="fixed bottom-0 left-20 lg:left-64 right-0 p-4 glass border-t border-white/5 flex justify-center gap-12 z-40">
+        <div class="flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-slate-500">
+            <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div> Google Workspace
+        </div>
+        <div class="flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-slate-500">
+            <div class="w-2 h-2 bg-indigo-500 rounded-full"></div> Microsoft 365
+        </div>
+        <div class="flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-slate-500">
+            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div> CXC Economy
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+
+        // Troca de Abas
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.getElementById('tab-' + tab).classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('nav-active');
+                b.classList.add('text-slate-500');
+            });
+            event.currentTarget.classList.add('nav-active');
+            event.currentTarget.classList.remove('text-slate-500');
+        }
+
+        // Esconder/Mostrar Mascote
+        function toggleMascot() {
+            const box = document.getElementById('mascot-box');
+            const btn = document.getElementById('mascot-btn');
+            if(box.classList.contains('hidden')) {
+                box.classList.remove('hidden');
+                btn.classList.add('hidden');
+            } else {
+                box.classList.add('hidden');
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            }
+        }
+    </script>
+</body>
+                  </html>
