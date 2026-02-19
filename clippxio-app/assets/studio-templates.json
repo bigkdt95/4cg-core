@@ -1,0 +1,25 @@
+{
+  "templates": [
+    {
+      "id": "reels-obra",
+      "nome": "Evolução de Obra",
+      "tipo": "video",
+      "tags_suportadas": ["#obra", "#inspecao"],
+      "formato": "9:16"
+    },
+    {
+      "id": "card-familia",
+      "nome": "Memória de Família",
+      "tipo": "imagem",
+      "tags_suportadas": ["#familia"],
+      "formato": "1:1"
+    },
+    {
+      "id": "doc-projeto",
+      "nome": "Status do Projeto",
+      "tipo": "pdf",
+      "tags_suportadas": ["#projeto", "#reuniao"],
+      "formato": "A4"
+    }
+  ]
+}
